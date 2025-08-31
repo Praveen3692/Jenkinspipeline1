@@ -1,25 +1,29 @@
 pipeline {
-    agent any{
-    statges {
-     stage("Pull Code"){
-         steps {
-               echo "Pulling code from Github..."
+    agent any
+
+    stages {
+        stage("Pull Code") {
+            steps {
+                echo "Pulling code from GitHub..."
             }
-         }
-     stage("Build") {
-           steps {
-                 echo "Building Packegs from code..."
+        }
+
+        stage("Build") {
+            steps {
+                echo "Building packages from code..."
             }
-          }
-   Stage("Test") {
-          steps {
-                 echo "Testing Package"
-          }
-         }
-   Stage("deploy")
-         steps {
-                echo "deploying Application..."
-                }
-         }
+        }
+
+        stage("Test") {
+            steps {
+                echo "Testing package..."
+            }
+        }
+
+        stage("Deploy") {
+            steps {
+                echo "Deploying application..."
+            }
+        }
     }
- }
+}
